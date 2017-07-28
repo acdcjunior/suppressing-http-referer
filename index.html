@@ -8,7 +8,7 @@
     <title>Referer</title>
 </head>
 <body>
-<h1>Hello3</h1>
+<h1>Hello v4</h1>
 <script>
     function gaProxy() {
         (window.gaProxyQueue = window.gaProxyQueue || []).push(arguments);
@@ -16,9 +16,10 @@
     gaProxy('create', 'UA-103373032-2', 'auto');
     gaProxy('send', 'pageview', 'ga');
     function gaframeLoaded() {
-        gaProxy = document.getElementById('gaframe').contentWindow.ga;
+        var win = document.getElementById('gaframe').contentWindow;
+        gaProxy = win.ga;
         (window.gaProxyQueue || []).forEach(function (args) {
-            gaProxy.call(args);
+            gaProxy.apply(win, args);
         });
     }
 </script>

@@ -8,19 +8,19 @@
     <title>Referer</title>
 </head>
 <body>
-<h1>Hello v5</h1>
+<h1>Hello v6</h1>
 <script>
-    window.ga = window.ga || function () { (window.ga.q = window.ga.q||[]).push(arguments); }
-    ga('create', 'UA-103373032-2', 'auto');
-    ga('send', 'pageview', 'ga');
-    function gaframeLoaded() {
-        var win = document.getElementById('gaframe').contentWindow;
-        ga = win.ga;
-        (window.ga.q || []).forEach(function (args) {
-            ga.apply(win, args);
+    function gaNoReferrer() { (window.gaNoReferrerQueue = window.gaNoReferrerQueue || []).push(arguments); }
+    gaNoReferrer('create', 'UA-103373032-2', 'auto');
+    gaNoReferrer('send', 'pageview', 'ga');
+    function gaNoReferrerFrameLoaded() {
+        var gaNoReferrerFrameWindow = document.getElementById('gaNoReferrerFrame').contentWindow;
+        gaNoReferrer = gaNoReferrerFrameWindow.ga;
+        (window.gaNoReferrerQueue || []).forEach(function (args) {
+            gaNoReferrer.apply(gaNoReferrerFrameWindow, args);
         });
     }
 </script>
-<iframe src="ga.html" id="gaframe" onload="gaframeLoaded()">
+<iframe src="ga.html" id="gaNoReferrerFrame" onload="gaNoReferrerFrameLoaded()">
 </body>
 </html>
